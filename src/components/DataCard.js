@@ -15,7 +15,7 @@ function DataCard({ Title, Data,TopContractAddress, Circle, Link }) {
         <div className="dataCardContainer">
             <div className="titleContainer">{title}</div>
             
-            {data ? (<div className="dataContainer">{Data.slice(0,18)}...</div>) : (<div className="dataContainer"></div>)}
+            {data ? (<div className="dataContainer">{Data.slice(0,10)}{Data.length>10?<>...</>:(<div></div>)}</div>) : (<div className="dataContainer"></div>)}
             
             <hr className="lineContainer"
                 style={{

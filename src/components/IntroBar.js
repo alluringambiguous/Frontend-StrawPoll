@@ -58,7 +58,7 @@ function IntroBar({ userAddr, setUserAddr }) {
                     <FontAwesomeIcon icon={faBell} />
                 </div>
                 <div className="profilePicContainer">
-                    {<ProfilePicture address={account}/>}
+                    {<ProfilePicture address={account} />}
                 </div>
             </div>
             <div className="connectButtonContainer">
@@ -87,7 +87,7 @@ function IntroBar({ userAddr, setUserAddr }) {
                         }}
                         disabled={isWeb3EnableLoading}
                     >
-                       Connect to Metamask
+                        Connect to Metamask
                     </button>
                 )}
             </div>

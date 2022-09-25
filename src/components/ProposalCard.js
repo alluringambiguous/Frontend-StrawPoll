@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useMoralis, useWeb3Contract } from "react-moralis"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import contractAddressData from "../constants/contractAddress.json"
 import "./ProposalCard.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -76,10 +76,24 @@ function ProposalCard({ name, uri, proposer, upvote, downvote }) {
         <div className="proposalCardContainer">
             <div className="porposalCardDataContainer">
                 <div className="proposalCircleContainer">
-                    <ProfilePicture address={proposer}/>
+                    <ProfilePicture address={proposer} />
                 </div>
                 <div className="proposalAuthorDataContainer">
-                    <Link to={`/proposal/${uri.split("/").pop()}`} key="proposalIpfsHash" style={{textDecoration: 'none'}} className="proposalTitleContainer">{name}</Link>
+                    <Link
+                        to={`/proposal/${uri.split("/").pop()}`}
+                        key="proposalIpfsHash"
+                        style={{ textDecoration: "none" }}
+                        className="proposalTitleContainer"
+                    >
+                        {name ? (
+                            <div>
+                                {name.slice(0, 18)}
+                                {name.length > 18 ? <>...</> : <div></div>}
+                            </div>
+                        ) : (
+                            <div></div>
+                        )}
+                    </Link>
 
                     <div className="proposalAuthorContainer">
                         {proposer.slice(0, 6)}...
@@ -91,7 +105,6 @@ function ProposalCard({ name, uri, proposer, upvote, downvote }) {
                 <div className="proposalReactionContainer">
                     <FontAwesomeIcon
                         icon={faThumbsUp}
-                        
                         onClick={async () => {
                             handleLike()
                         }}

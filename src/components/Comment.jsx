@@ -4,6 +4,8 @@ import { useEffect, useState } from "react"
 import "./Comment.css"
 import dataConst from "../constants/data.json"
 import axios from "axios"
+import ProfilePicture from "../components/ProfilePicture"
+
 
 function Comment({
     discussion_url,
