@@ -63,21 +63,30 @@ function ProposalBar({ userAddr }) {
 
                     // console.log(`${txHash}`)
 
-                    allProposalsCleaned.push({name, uri, proposer, upvotes, downvotes})
+                    allProposalsCleaned.push({
+                        name,
+                        uri,
+                        proposer,
+                        upvotes,
+                        downvotes,
+                    })
                 }
 
-            setProposals(allProposalsCleaned.map((proposal, i) => {
-                return (
-                    <ProposalCard
-                        key={i}
-                        name={proposal.name}
-                        uri={proposal.uri}
-                        proposer={proposal.proposer}
-                        upvote={proposal.upvotes}
-                        downvote={proposal.downvotes}
-                    />
-                )
-            }).reverse()
+            setProposals(
+                allProposalsCleaned
+                    .map((proposal, i) => {
+                        return (
+                            <ProposalCard
+                                key={i}
+                                name={proposal.name}
+                                uri={proposal.uri}
+                                proposer={proposal.proposer}
+                                upvote={proposal.upvotes}
+                                downvote={proposal.downvotes}
+                            />
+                        )
+                    })
+                    .reverse()
             )
         }
         updateUi()
@@ -95,20 +104,22 @@ function ProposalBar({ userAddr }) {
                         <div className="titleProposalTopContainer">
                             Latest Proposals
                         </div>
-                        <div className="titleProposalTopUnselectedContainer"
-                        onClick = {() => {
-                            setSortLatestFirst(!sortLatestFirst)
-                            setProposals(proposals.reverse())
-                        }}>
-                            Sort by
+                        <div
+                            className="titleProposalTopUnselectedContainer"
+                            onClick={() => {
+                                setSortLatestFirst(!sortLatestFirst)
+                                setProposals(proposals.reverse())
+                            }}
+                        >
+                            <div>Sort by</div>
                             <FontAwesomeIcon
-                                icon={sortLatestFirst ?  faArrowUp : faArrowDown}
+                                icon={sortLatestFirst ? faArrowUp : faArrowDown}
                                 width={16}
                                 className="downArrowContainer"
                             />
                         </div>
                         <div className="titleProposalTopUnselectedContainer">
-                            Your Proposals
+                            <div>Your Proposals</div>
                         </div>
                     </div>
                     <hr
@@ -126,7 +137,7 @@ function ProposalBar({ userAddr }) {
                 <div className="searchBarContainer">
                     <div className="searchNameContainer">Search</div>
 
-                    <FontAwesomeIcon  icon={faMagnifyingGlass} width={16} />
+                    <FontAwesomeIcon icon={faMagnifyingGlass} width={16} />
                 </div>
 
                 <div onClick={handleOpen} className="addProposalContainer">
@@ -145,9 +156,7 @@ function ProposalBar({ userAddr }) {
                 open={open}
                 handleClose={handleClose}
             />
-            <div className="proposalCardsContainer">
-                {proposals}
-            </div>
+            <div className="proposalCardsContainer">{proposals}</div>
         </div>
     )
 }

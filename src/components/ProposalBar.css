@@ -136,4 +136,8 @@ padding:16px;
     justify-content: space-between;
     
   }
+  .titleProposalTopUnselectedContainer :hover{
+    font-weight: 600;
+    color:#e5007a;
+  }
   

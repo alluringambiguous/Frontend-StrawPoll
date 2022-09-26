@@ -52,20 +52,21 @@ function DataBar() {
                 <DataCard
                     key={2}
                     Title={"GLMR Price"}
-                    Data={`$ ${glmrToUsd}`}
+                    Data={`$ ${Math.round(glmrToUsd / 40833 * 10000) / 10000}`}
                     TopContractAddress={"http://glmrtousdconverter"}
                 />,
                 <DataCard
                     key={3}
                     Title={"Push for Governance in"}
                     Data={`${dayLeft} days`}
-                    TopContractAddress={"http://glmrtousdconverter"}
+                    
+                    Progress={dayLeft}
                 />,
                 <DataCard
                     key={4}
-                    Title={"Push for Governance in"}
-                    Data={`${dayLeft} days`}
-                    TopContractAddress={"http://glmrtousdconverter"}
+                    Title={"Last Weeks Top Proposal"}
+                    Data={"NaN"}
+                    TopContractAddress={"0xurietyoreitweoriutw"}
                 />,
             ],
         ])
