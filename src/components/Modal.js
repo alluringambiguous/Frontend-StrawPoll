@@ -26,26 +26,27 @@ function ModalTab({ userAddr, open, handleClose }) {
     })
 
     async function sendProposalUrlToPythonBackend() {
-
         const pythonApiPrefix = dataConst.pythonApiPrefix
         const newDiscussionEndpoint = `${pythonApiPrefix}/discussions`
 
         try {
-            console.log("sending proposal url to python backend : ", newDiscussionEndpoint)
+            console.log(
+                "sending proposal url to python backend : ",
+                newDiscussionEndpoint
+            )
             const response = await axios({
                 method: "post",
                 url: newDiscussionEndpoint,
-                data: { proposal_url : proposalUrl },
+                data: { proposal_url: proposalUrl },
                 headers: {
                     "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "*"
+                    "Access-Control-Allow-Origin": "*",
                 },
             })
             console.log("response from python backend : ", response)
         } catch (error) {
             console.log(error)
         }
- 
     }
 
     const handleClick = async () => {
@@ -68,10 +69,9 @@ function ModalTab({ userAddr, open, handleClose }) {
             // get ipfs url and store for later use
             const ipfsHash = await resJson.data.IpfsHash
             const url_string = dataConst.ipfsUrlPrefix + "/" + ipfsHash
-            
+
             console.log("final ipfs url string", `${url_string}`)
             setProposalUrl(url_string)
-
         } catch (error) {
             console.log(error)
         }
@@ -79,7 +79,10 @@ function ModalTab({ userAddr, open, handleClose }) {
 
     async function handleProposalUrlUpdate() {
         if (proposalUrl !== "") {
-            console.log("proposalUrl state set, trying to send changes", proposalUrl)
+            console.log(
+                "proposalUrl state set, trying to send changes",
+                proposalUrl
+            )
             await addProposal()
             await sendProposalUrlToPythonBackend()
         }
@@ -87,7 +90,6 @@ function ModalTab({ userAddr, open, handleClose }) {
 
     useEffect(() => {
         handleProposalUrlUpdate()
-
     }, [proposalUrl])
 
     const handleTitleChange = (event) => {
@@ -100,7 +102,6 @@ function ModalTab({ userAddr, open, handleClose }) {
             onClose={handleClose}
             radius="10px"
             className="modalContainer"
-
         >
             <div className="modalStyleContainer">
                 <Box
@@ -115,15 +116,17 @@ function ModalTab({ userAddr, open, handleClose }) {
                         <div>Proposer's Address :</div> <div>{userAddr}</div>
                     </div>
                     <TextField
-                        id="outlined-name"
+                        id="filled"
                         label="Proposal's Title"
                         value={title}
+                        variant="filled"
                         onChange={handleTitleChange}
                         sx={{
-                            bgcolor: "#1E1E28",
+                            bgcolor: "white",
                             marginTop: "16px",
                             marginBottom: "16px",
                             width: { sm: 800 },
+                            multilineColor: "secondary",
                         }}
                     />
                     <MDEditor
@@ -131,8 +134,9 @@ function ModalTab({ userAddr, open, handleClose }) {
                         onChange={setMarkDownValue}
                         className="editorContainer"
                     ></MDEditor>
-                    <div className="buttonModalContainer" onClick={handleClick}>Submit</div>
-                    {proposalUrl}
+                    <div className="buttonModalContainer" onClick={handleClick}>
+                        Submit
+                    </div>
                 </Box>
             </div>
         </Modal>

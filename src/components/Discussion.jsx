@@ -5,13 +5,14 @@ import axios from "axios"
 import dataConst from "../constants/data.json"
 import ProfilePicture from "./ProfilePicture.jsx"
 
-function Discussion({ proposalUrl }) {
+function Discussion({ proposalUrl,account }) {
     // proposalUrl: Ipfs api endpoint prefix + ipfs hash of proposal
     
     const pythonApiPrefix = dataConst.pythonApiPrefix
     const discussionEndpoint = `${pythonApiPrefix}/discussions/${proposalUrl}`
     const [comments, setComments] = useState([])
     const [newCommentContent, setNewCommentContent] = useState("")
+    console.log(account)
 
 
     async function getComments() {
@@ -45,6 +46,7 @@ function Discussion({ proposalUrl }) {
 
         //TODO URL
         const hi = "www.proposal1.com"
+        
         e.preventDefault()
         try {
             console.log(
@@ -53,7 +55,7 @@ function Discussion({ proposalUrl }) {
             
             const response = await axios.post(discussionEndpoint, {
                 content: newCommentContent,
-                author_address: "0x1234567890", //TODO: get author address from MM
+                author_address: account, //TODO: get author address from MM
             })
 
             console.log("posted comment", response.data)
@@ -80,7 +82,7 @@ function Discussion({ proposalUrl }) {
             <form onSubmit={handlePostComment}>
                 <div className="commentContainer">
                     <div className="commentLEFT">
-                        <div className="profilePicture"><ProfilePicture address={" "}/></div>
+                        <div className="profilePicture"><ProfilePicture address={account}/></div>
                     </div>
                     <div className="commentRIGHT">
                        

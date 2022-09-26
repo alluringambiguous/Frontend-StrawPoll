@@ -22,9 +22,10 @@
 }
 .proposerAddressContainer{
     display: flex;
-    width: 60%;
+    width: 50%;
     justify-content: space-between;
     align-items: center;
+    color: white;
 
     
 }

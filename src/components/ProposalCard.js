@@ -128,7 +128,7 @@ function ProposalCard({ name, uri, proposer, upvote, downvote }) {
                         icon={faComment}
                         className="reactionContainer"
                     />
-                    <div>{15}</div>
+                    <div>{0}</div>
                 </div>
             </div>
         </div>
