@@ -1,5 +1,9 @@
-project story
+# Project Story
+
+
+![Landing Page](https://raw.githubusercontent.com/alluringambiguous/Frontend-StrawPoll/master/a%20landing%20page.png)
 ## Inspiration
+
 Currently a minimum bond of 400 GLMR to make a proposal which is eventually refunded. Still, not all users will have easy access to 400 GLMR or feel comfortable with locking it for an indeterminate amount of time. <br>
 
 * This financial barrier stagnates the overall improvement of the blockchain as many good ideas would be left un-proposed.
@@ -11,8 +15,13 @@ A strawpoll is an unofficial poll that usually takes place before a official gov
 Our *"Straw Poll" Dapp* is a intuitive and a community-based web solution that lets users **submit, read, discuss and interact** with proposals published by other users. <br>
 The app collects proposal information (i.e. likes, dislikes, proposer etc) **on-chain**. Users can read, vote and discuss the proposals. Further, the top voted proposal is **submitted for official governance periodically**. <br>
  We have launched our app on the Moonbase Alpha testnet.
+ 
+ ![Home page](https://raw.githubusercontent.com/alluringambiguous/Frontend-StrawPoll/master/homepage.png)
+ 
 <br><br>
 ## How we built it
+
+![Architecture](https://raw.githubusercontent.com/alluringambiguous/Frontend-StrawPoll/master/architecture.png)
 
 ### Smart Contract
 We started with deploying the smart-contract on the monnbase alpha test net. The smart contract records the details of the proposals and encloses a wide variety of usable functions that provide decentralization to our project.
