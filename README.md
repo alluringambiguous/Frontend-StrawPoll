@@ -2,6 +2,8 @@
 
 
 ![Landing Page](https://raw.githubusercontent.com/alluringambiguous/Frontend-StrawPoll/master/a%20landing%20page.png)
+*<div align="center"> The StrawPoll Dapp</div>*
+
 ## Inspiration
 
 Currently a minimum bond of 400 GLMR to make a proposal which is eventually refunded. Still, not all users will have easy access to 400 GLMR or feel comfortable with locking it for an indeterminate amount of time. <br>
@@ -17,11 +19,13 @@ The app collects proposal information (i.e. likes, dislikes, proposer etc) **on-
  We have launched our app on the Moonbase Alpha testnet.
  
  ![Home page](https://raw.githubusercontent.com/alluringambiguous/Frontend-StrawPoll/master/homepage.png)
+ *<div align="center"> Website Homepage </div>*
  
 <br><br>
 ## How we built it
 
 ![Architecture](https://raw.githubusercontent.com/alluringambiguous/Frontend-StrawPoll/master/architecture.png)
+*<div align="center"> Dapp Architecture </div>*
 
 ### Smart Contract
 We started with deploying the smart-contract on the monnbase alpha test net. The smart contract records the details of the proposals and encloses a wide variety of usable functions that provide decentralization to our project.
@@ -76,19 +80,10 @@ We designed a web solution that is more intuitive to use and interact with for u
 
 ## What we learned
 
-### Quick developement in a fast paced hackathon project
-reading docs, quick debugging.
-
-### Chainlink, ipfs, smart contract, Open Zepplin
-We learnt how to use chainlink oracles to call API endpoints to get price feed. 
-
-### React + moralis, 
-create react app issues, 
-
-### Database, flask, heroku backend
-
-### User flow diagram
-
-### Worked with team, of developers and UI designers
+* Quick developement in a fast paced hackathon project
+* Chainlink, ipfs, smart contract, Open Zepplin
+* React + moralis, 
+* Database, flask, heroku backend
+* Worked with team, of developers and UI designers
 <br><br>
 
