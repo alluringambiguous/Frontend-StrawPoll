@@ -1,4 +1,18 @@
+# Updated:
 * Latest Deployment: [Netlify](https://creative-raindrop-ebbba0.netlify.app/)
+
+
+# How to run locally
+
+## Prereqs:
+NPM.
+
+## To run:
+
+```
+$ npm install
+$ npm run start
+```
 
 
 # Project Story
