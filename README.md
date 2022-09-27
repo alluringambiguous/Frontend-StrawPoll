@@ -1,5 +1,7 @@
-# Project Story
+* Latest Deployment: [Netlify](https://creative-raindrop-ebbba0.netlify.app/)
 
+
+# Project Story
 
 ![Landing Page](https://raw.githubusercontent.com/alluringambiguous/Frontend-StrawPoll/master/a%20landing%20page.png)
 *<div align="center"> The StrawPoll Dapp</div>*
