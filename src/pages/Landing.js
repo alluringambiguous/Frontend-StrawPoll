@@ -21,7 +21,7 @@ function Landing() {
             <div className="navContainer">
                 <div className="logoNavContainer">StrawPoll</div>
                 <Link
-                    to="/"
+                    to="/home"
                     onClick={async () => {
                         await enableWeb3()
                         if (typeof window !== "undefined") {

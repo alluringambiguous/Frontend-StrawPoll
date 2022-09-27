@@ -69,6 +69,13 @@
 .reactionContainer:hover{
     color:#e5007a;
 }
+.trashContainer{
+    color: #d3d3d3;
+}
+
+.trashContainer :hover{  
+    color:#e5007a;
+}
 .proposalReactionContainer{
     display: flex;
     align-items: center;

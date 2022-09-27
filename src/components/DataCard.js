@@ -14,7 +14,7 @@ function DataCard({ Title, Data, TopContractAddress, Progress, Circle, Link }) {
 
     const mystyle = {
         backgroundColor: "white",
-        width: `${(Progress * 100) / 7}%`,
+        width: `${((7-Progress) * 100) / 7}%`,
         height: "6px",
         borderRadius: "2px",
     }
@@ -25,8 +25,8 @@ function DataCard({ Title, Data, TopContractAddress, Progress, Circle, Link }) {
 
             {data ? (
                 <div className="dataContainer">
-                    {Data.slice(0, 10)}
-                    {Data.length > 10 ? <>...</> : <div></div>}
+                    {Data.slice(0, 13)}
+                    {Data.length > 13 ? <>...</> : <div></div>}
                 </div>
             ) : (
                 <div className="dataContainer"></div>
