@@ -58,7 +58,7 @@ function DataBar() {
                 <DataCard
                     key={3}
                     Title={"Push for Governance in"}
-                    Data={`${dayLeft} days`}
+                    Data={`${dayLeft} days to go`}
                     
                     Progress={dayLeft}
                 />,

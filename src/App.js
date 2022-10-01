@@ -32,8 +32,8 @@ function App() {
             <BrowserRouter>
 
                 <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/landing" element={<LandingPage />}/>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/home" element={<HomePage/>}/>
                     <Route path="/proposal/:proposalIpfsHash" element={<ProposalPage />} />
                 </Routes>
             </BrowserRouter>

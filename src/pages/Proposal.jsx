@@ -170,7 +170,7 @@ function Proposal() {
         <div className="proposalPageDashContainer">
             <div className="topIntroBarContainer">
                 <Link
-                    to="/"
+                    to="/home"
                     style={{
                         marginRight: "auto",
                         textDecoration: "none",

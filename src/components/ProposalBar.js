@@ -22,6 +22,7 @@ function ProposalBar({ userAddr }) {
     const [sortLatestFirst, setSortLatestFirst] = useState(true)
     const contractAddress = contractAddressData.contractAddress
     const temp = []
+    
 
     const { chainId, isWeb3Enabled } = useMoralis()
     // console.log(contractAddress.contractAddress)
@@ -83,6 +84,7 @@ function ProposalBar({ userAddr }) {
                                 proposer={proposal.proposer}
                                 upvote={proposal.upvotes}
                                 downvote={proposal.downvotes}
+                                userAddr={userAddr}
                             />
                         )
                     })

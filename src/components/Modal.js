@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import Modal from "@mui/material/Modal"
+// import { Snackbar, Alert } from "@mui/material"
 import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
 import { useWeb3Contract } from "react-moralis"
@@ -12,6 +13,7 @@ import dataConst from "../constants/data.json"
 
 function ModalTab({ userAddr, open, handleClose }) {
     const [title, setTitle] = React.useState("")
+    const [openSnack,setOpenSnack] = React.useState(false)
     const [proposalUrl, setProposalUrl] = React.useState("")
     const [markDownValue, setMarkDownValue] = React.useState(
         "type proposal here ...."
@@ -48,11 +50,13 @@ function ModalTab({ userAddr, open, handleClose }) {
             console.log(error)
         }
     }
-
+    
     const handleClick = async () => {
         console.log(userAddr)
         console.log(markDownValue)
         console.log("entered...")
+        handleClose()
+        
 
         try {
             // uploading to ipfs
@@ -137,6 +141,7 @@ function ModalTab({ userAddr, open, handleClose }) {
                     <div className="buttonModalContainer" onClick={handleClick}>
                         Submit
                     </div>
+                    
                 </Box>
             </div>
         </Modal>

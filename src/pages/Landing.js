@@ -8,20 +8,24 @@ import {
     faTwitter,
     faDiscord,
 } from "@fortawesome/free-brands-svg-icons"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { useMoralis } from "react-moralis"
 
 function Landing() {
-    const { enableWeb3, isWeb3EnableLoading } = useMoralis()
-    useEffect(() => {}, [])
+    const { account,enableWeb3, isWeb3EnableLoading } = useMoralis()
+    const navigate = useNavigate()
+    useEffect(() => {
+        if(account !=null)
+        navigate("/home")
+    }, [account])
 
     return (
         <div className="landingContainer">
             <div className="navContainer">
                 <div className="logoNavContainer">StrawPoll</div>
-                <Link
-                    to="/"
+                <div
+                    to="/home"
                     onClick={async () => {
                         await enableWeb3()
                         if (typeof window !== "undefined") {
@@ -33,7 +37,7 @@ function Landing() {
                     disable={isWeb3EnableLoading}
                 >
                     Connect to Metamask
-                </Link>
+                </div>
             </div>
             <div className="mainLandingContainer">
                 <div className="headingLandingContainer">
