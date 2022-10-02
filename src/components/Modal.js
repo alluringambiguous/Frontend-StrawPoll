@@ -11,7 +11,7 @@ import MDEditor from "@uiw/react-md-editor"
 import axios from "axios"
 import dataConst from "../constants/data.json"
 
-function ModalTab({ userAddr, open, handleClose }) {
+function ModalTab({ userAddr, open, handleClose ,setOpenAlert}) {
     const [title, setTitle] = React.useState("")
     const [openSnack,setOpenSnack] = React.useState(false)
     const [proposalUrl, setProposalUrl] = React.useState("")
@@ -56,6 +56,7 @@ function ModalTab({ userAddr, open, handleClose }) {
         console.log(markDownValue)
         console.log("entered...")
         handleClose()
+        setOpenAlert(true)
         
 
         try {

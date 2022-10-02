@@ -3,21 +3,25 @@ import { useMoralis, useWeb3Contract } from "react-moralis"
 import { Link } from "react-router-dom"
 import contractAddressData from "../constants/contractAddress.json"
 import "./ProposalCard.css"
+import Alert from "@mui/material/Alert"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
     faThumbsUp,
     faThumbsDown,
     faComment,
-    faTrash
+    faTrash,
 } from "@fortawesome/free-solid-svg-icons"
 import abi from "../abi.json"
 import ProfilePicture from "./ProfilePicture"
 
-function ProposalCard({ name, uri, proposer, upvote, downvote,userAddr}) {
+function ProposalCard({ name, uri, proposer, upvote, downvote,setOpenAlert }) {
     const [like, setLike] = useState(upvote)
     const [dislike, setDislike] = useState(downvote)
     const contractAddress = contractAddressData.contractAddress
-    console.log(userAddr)
+    // const [userCardAddr,setUserCardAddr] = useState(account)
+    // console.log(`thsi is in propsoal card${account}`)
+    
+    const { account} = useMoralis();
 
     const { runContractFunction: upVote } = useWeb3Contract({
         abi: abi,
@@ -54,6 +58,7 @@ function ProposalCard({ name, uri, proposer, upvote, downvote,userAddr}) {
         },
     })
     const handleLike = async () => {
+        setOpenAlert()
         await upVote({ onSuccess: (tx) => handleSuccess(tx) })
     }
     const handleChange = async (upvotes, downvotes) => {
@@ -71,6 +76,7 @@ function ProposalCard({ name, uri, proposer, upvote, downvote,userAddr}) {
         return ["success", tx]
     }
     const handleDislike = async () => {
+        setOpenAlert()
         await downVote({ onSuccess: (tx) => handleSuccess(tx) })
     }
 
@@ -88,15 +94,23 @@ function ProposalCard({ name, uri, proposer, upvote, downvote,userAddr}) {
                         className="proposalTitleContainer"
                     >
                         {name ? (
-                            <div style={{display:"flex",width:"100%"}}>
+                            <div style={{ display: "flex", width: "100%" }}>
                                 {name.slice(0, 18)}
                                 {name.length > 18 ? <>...</> : <div></div>}
-                                {
-                                    proposer==="0xD3Ff96cf6925a905dce544140F06B9745e2bcBae"?<div style={{marginLeft:"auto"}}><FontAwesomeIcon
-                                    icon={faTrash} style={{width:" 12px"}}
-                                    className="trashContainer"
-                                /></div>:<div></div>
-                                }
+                                
+                                {/* {proposer ===
+                                "0xD3Ff96cf6925a905dce544140F06B9745e2bcBae" ? (
+                                    <div style={{ marginLeft: "auto" }}>
+                                        
+                                        <FontAwesomeIcon
+                                            icon={faTrash}
+                                            style={{ width: " 12px" }}
+                                            className="trashContainer"
+                                        />
+                                    </div>
+                                ) : (
+                                    <div></div>
+                                )} */}
                                 {/* <div ></div> */}
                             </div>
                         ) : (
@@ -108,7 +122,6 @@ function ProposalCard({ name, uri, proposer, upvote, downvote,userAddr}) {
                         {proposer.slice(0, 6)}...
                         {proposer.slice(proposer.length - 4)}
                     </div>
-                    
                 </div>
             </div>
             <div className="proposalReactionsContainer">
@@ -130,6 +143,7 @@ function ProposalCard({ name, uri, proposer, upvote, downvote,userAddr}) {
                         }}
                         className="reactionContainer"
                     />
+                    
 
                     <div>{dislike}</div>
                 </div>

@@ -8,9 +8,16 @@
     justify-content: space-between;
     overflow-y: scroll;
     scrollbar-color: green;
+    overflow-x:hidden ;
     /* background-color: green; */
 }
-
+.alertMainDash{
+    position: absolute;
+   
+    margin-right: 36px;
+    
+    z-index: 100;
+}
 
 
 .introBarContainer {

@@ -1,33 +1,27 @@
-.modalHeadMessage1{
+.modalHeadMessage1 {
     font-size: 48px;
-    color:#e5007a; 
-    font-weight: 600;   
+    color: #e5007a;
+    font-weight: 600;
     margin-bottom: 48px;
-    
 }
-.modalHeadMessage2{
+.modalHeadMessage2 {
     font-size: 16px;
-    font-weight: 300;   
-    padding-left:2px;
-    
-
-    
+    font-weight: 300;
+    padding-left: 2px;
 }
-.modalContainer{
-        /* border-style: none;
+.modalContainer {
+    /* border-style: none;
         border-width: 0px; */
     border-radius: 10px;
-    margin:0px;
-    color:#1E1E28;
+    margin: 0px;
+    color: #1e1e28;
 }
-.proposerAddressContainer{
+.proposerAddressContainer {
     display: flex;
     width: 50%;
     justify-content: space-between;
     align-items: center;
     color: white;
-
-    
 }
 .modalStyleContainer {
     width: 80%;
@@ -36,15 +30,14 @@
     left: 50%;
     height: 80%;
     transform: translate(-50%, -50%);
-    background-color: #1E1E28;    
+    background-color: #1e1e28;
     border-style: solid;
-    border-radius:10px;
+    border-radius: 10px;
     border-width: 0px;
-    border-color: #1E1E28;
-    margin:0px;
-    padding:0px;
+    border-color: #1e1e28;
+    margin: 0px;
+    padding: 0px;
     outline: 0px !important;
-
 }
 
 .boxStyleContainer {
@@ -72,11 +65,12 @@
     background-color: #e5007a;
     color: white;
     margin-top: 16px;
-    margin-left:52.1%;
-  }
-  
-  .buttonModalContainer:hover {
-    background-color:#e5007a;
-    color: #1E1E28;
+    margin-left: 52.1%;
+}
+
+.buttonModalContainer:hover {
+    background-color: #e5007a;
+    color: #1e1e28;
+    cursor: pointer;
     /* SET COLOR IN BLACK */
-  }
+}

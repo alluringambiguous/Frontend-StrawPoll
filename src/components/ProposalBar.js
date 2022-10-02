@@ -16,14 +16,14 @@ import { Link } from "react-router-dom"
 
 import { ApiPromise, WsProvider } from "@polkadot/api"
 
-function ProposalBar({ userAddr }) {
+function ProposalBar({ userAddr,setOpenAlert }) {
     const [proposals, setProposals] = useState([])
     const [open, setOpen] = React.useState(false)
     const [sortLatestFirst, setSortLatestFirst] = useState(true)
     const contractAddress = contractAddressData.contractAddress
     const temp = []
     
-
+console.log(` this is in proposal ${userAddr}`)
     const { chainId, isWeb3Enabled } = useMoralis()
     // console.log(contractAddress.contractAddress)
     const { runContractFunction: viewAllProposals } = useWeb3Contract({
@@ -84,7 +84,8 @@ function ProposalBar({ userAddr }) {
                                 proposer={proposal.proposer}
                                 upvote={proposal.upvotes}
                                 downvote={proposal.downvotes}
-                                userAddr={userAddr}
+                                
+                                setOpenAlert={setOpenAlert}
                             />
                         )
                     })
@@ -157,6 +158,7 @@ function ProposalBar({ userAddr }) {
                 userAddr={userAddr}
                 open={open}
                 handleClose={handleClose}
+                setOpenAlert={setOpenAlert}
             />
             <div className="proposalCardsContainer">{proposals}</div>
         </div>

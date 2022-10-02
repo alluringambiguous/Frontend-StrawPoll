@@ -9,11 +9,17 @@ import "./Proposal.css"
 import MDEditor from "@uiw/react-md-editor"
 import { useParams } from "react-router-dom"
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ProfilePicture from "../components/ProfilePicture"
 import { useMoralis, useWeb3Contract } from "react-moralis"
 import abi from "../abi.json"
 import { Link } from "react-router-dom"
+import Alert from "@mui/material/Alert"
+import IconButton from "@mui/material/IconButton"
+import Collapse from "@mui/material/Collapse"
+import Button from "@mui/material/Button"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faClose } from "@fortawesome/free-solid-svg-icons"
 
 import {
     faThumbsUp,
@@ -23,8 +29,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 function Proposal() {
-    // const [like, setLike] = useState(upvote)
-    // const [dislike, setDislike] = useState(downvote)
+    const [like, setLike] = useState(0)
+    const [dislike, setDislike] = useState(0)
+    const [openAlert, setOpenAlert] = useState(false)
+
     const { proposalIpfsHash } = useParams()
     const [proposalUrl, setProposalUrl] = useState(
         dataConst.ipfsUrlPrefix + "/" + proposalIpfsHash
@@ -42,6 +50,7 @@ function Proposal() {
     const { Moralis, enableWeb3, isWeb3Enabled } = useMoralis()
 
     const contractAddress = contractAddressData.contractAddress
+
     const { runContractFunction: proposalDetail } = useWeb3Contract({
         abi: abi,
         contractAddress: contractAddress,
@@ -146,11 +155,12 @@ function Proposal() {
     }, [isWeb3Enabled])
 
     const handleLike = async () => {
+        setOpenAlert(true)
         await upVote({ onSuccess: (tx) => handleSuccess(tx) })
     }
     const handleChange = async (upvotes, downvotes) => {
-        // setLike(parseInt(upvotes))
-        // setDislike(parseInt(downvotes))
+        setLike(parseInt(getUpVotes()))
+        setDislike(parseInt(getDownVotes()))
     }
     const handleSuccess = async (tx) => {
         await tx.wait(1)
@@ -163,11 +173,35 @@ function Proposal() {
         return ["success", tx]
     }
     const handleDislike = async () => {
+        setOpenAlert(true)
         await downVote({ onSuccess: (tx) => handleSuccess(tx) })
     }
 
     return (
         <div className="proposalPageDashContainer">
+            <Collapse className="alertMainDash" in={openAlert} Alert>
+                <Alert
+                    action={
+                        <IconButton
+                            aria-label="close"
+                            color="inherit"
+                            size="small"
+                            onClick={() => {
+                                setOpenAlert(false)
+                            }}
+                        >
+                            <FontAwesomeIcon
+                                icon={faClose}
+                                width={16}
+                                className="downArrowContainer"
+                            />
+                        </IconButton>
+                    }
+                    sx={{ mb: 2 }}
+                >
+                    Please refresh the page after a short while!!
+                </Alert>
+            </Collapse>
             <div className="topIntroBarContainer">
                 <Link
                     to="/home"
