@@ -24,7 +24,7 @@ function ModalTab({ userAddr, open, handleClose ,setOpenAlert}) {
         abi: abi,
         contractAddress: contractAddress,
         functionName: "addProposal",
-        params: { _uri: proposalUrl, _proposer: userAddr, _name: title },
+        params: { _uri: proposalUrl, _proposer: userAddr, _name: title,_hash:"0x0e5751c026e543b2e8ab2eb06099daa1d1e5df47778f7787faab45cdf12fe3a8" },
     })
 
     async function sendProposalUrlToPythonBackend() {

@@ -3,7 +3,7 @@
 .dataCardContainer {
     display: flex;
     flex-direction: column;
-    width: 216px;
+    width: 245px;
     height: 162px;
     /* background-color: #1e1e28; */
     color: white;

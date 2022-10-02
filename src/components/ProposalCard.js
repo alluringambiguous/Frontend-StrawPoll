@@ -58,7 +58,7 @@ function ProposalCard({ name, uri, proposer, upvote, downvote,setOpenAlert }) {
         },
     })
     const handleLike = async () => {
-        setOpenAlert()
+        setOpenAlert(true)
         await upVote({ onSuccess: (tx) => handleSuccess(tx) })
     }
     const handleChange = async (upvotes, downvotes) => {
@@ -76,7 +76,7 @@ function ProposalCard({ name, uri, proposer, upvote, downvote,setOpenAlert }) {
         return ["success", tx]
     }
     const handleDislike = async () => {
-        setOpenAlert()
+        setOpenAlert(true)
         await downVote({ onSuccess: (tx) => handleSuccess(tx) })
     }
 
